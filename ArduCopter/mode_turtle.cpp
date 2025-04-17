@@ -191,9 +191,9 @@ void ModeTurtle::output_to_motors()
             continue;
         }
 
-        const Vector2f output{motors->get_roll_factor(i), motors->get_pitch_factor(i)};
+        // const Vector2f output{motors->get_roll_factor(i), motors->get_pitch_factor(i)};
         // if output aligns with input then use this motor
-        if (!allow_output || (motors_input - output).length() > 0.5) {
+        if (!allow_output) {
             motors->rc_write(i, motors->get_pwm_output_min());
             continue;
         }
